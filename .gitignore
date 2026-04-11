@@ -1,0 +1,9 @@
+# Preview files
+mobile-preview.html
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
