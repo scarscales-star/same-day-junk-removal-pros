@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
+<link rel="icon" type="image/png" href="/images/favicon.png"/>
+<link rel="apple-touch-icon" href="/images/favicon.png"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Same-Day Junk Removal Pros | Seattle, WA | (206) 889-3023</title>
 <meta name="description" content="Seattle's #1 same-day junk removal service. Furniture, appliances, yard waste & more. Licensed & insured. Upfront pricing. Call (206) 889-3023 today."/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16916043182"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-16916043182');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -42,13 +52,13 @@ h4{font-family:var(--font-head);font-size:1rem;font-weight:700}
 p{font-size:1rem;color:var(--gray);line-height:1.75}
 
 /* UTILS */
-.container{max-width:1120px;margin:0 auto;padding:0 24px}
-.section{padding:80px 0}
+.container{max-width:1160px;margin:0 auto;padding:0 32px}
+.section{padding:100px 0}
 .section-alt{background:var(--gray-lt)}
 .section-dark{background:var(--charcoal-dk);color:var(--white)}
 .section-dark p{color:rgba(255,255,255,0.65)}
 .text-center{text-align:center}
-.eyebrow{display:inline-block;font-family:var(--font-head);font-size:0.72rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.eyebrow{display:inline-block;font-family:var(--font-head);font-size:0.72rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
 .eyebrow-white{color:rgba(255,255,255,0.5)}
 .eyebrow-green{color:var(--green)}
 
@@ -277,12 +287,19 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
 .form-thank h3{font-family:var(--font-head);font-weight:900;color:var(--charcoal);margin-bottom:10px;font-size:1.4rem}
 
 /* ===================== SERVICE PAGE HERO ===================== */
-.page-hero{background:var(--charcoal-dk);padding:72px 0 60px;position:relative;overflow:hidden}
+.page-hero{background:var(--charcoal-dk);padding:80px 0 72px;position:relative;overflow:hidden}
 .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(255,105,0,0.15) 0%,transparent 60%)}
 .page-hero .container{position:relative}
 .page-hero h1{color:var(--white);margin-bottom:16px}
-.page-hero p{color:rgba(255,255,255,0.7);font-size:1.05rem;max-width:600px;margin-bottom:32px}
+.page-hero p{color:rgba(255,255,255,0.75);font-size:1.05rem;margin-bottom:32px}
+.page-hero .hero-text p{max-width:none}
 .page-hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.sp-form-slot{min-width:0}
+/* Override page-hero global rules so form card text stays dark */
+.page-hero .hero-card p,.page-hero .hero-card .form-sub{color:var(--gray);font-size:0.875rem;margin-bottom:0}
+.page-hero .hero-card h3{color:var(--charcoal)}
+.page-hero .hero-card label{color:var(--charcoal);font-size:0.82rem}
+.page-hero .hero-card .form-step-label{color:var(--gray)}
 
 /* ===================== ABOUT PAGE ===================== */
 .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px;margin-top:48px}
@@ -384,6 +401,7 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
 /* ===================== RESPONSIVE ===================== */
 @media(max-width:1024px){
   .hero-inner{grid-template-columns:1fr;gap:40px}
+  .page-hero .hero-inner{grid-template-columns:1fr minmax(260px,380px);gap:32px;align-items:start}
   .hero-card{max-width:520px}
   .split{grid-template-columns:1fr;gap:40px}
   .split.reverse .split-img{order:0}
@@ -497,6 +515,9 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
   /* Hide scrollbar on mobile viewport */
   html{scrollbar-width:none}
   html::-webkit-scrollbar{display:none}
+  /* Service page hero — collapse to single column on small phones */
+  .page-hero .hero-inner{grid-template-columns:1fr}
+  .page-hero .hero-card{max-width:100%}
 }
 </style>
 </head>
@@ -624,10 +645,10 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
       <div class="hero-card-title">Get Your Free Quote</div>
       <div class="hero-card-sub">Takes 2 minutes. No obligation.</div>
       <!-- MULTI-STEP FORM -->
-      <div class="form-progress"><div class="form-progress-bar" id="prog" style="width:25%"></div></div>
+      <div class="form-progress"><div class="form-progress-bar" id="prog" style="width:33%"></div></div>
       <!-- Step 1: Service -->
       <div class="form-step active" id="fs1">
-        <div class="form-step-label">Step 1 of 4</div>
+        <div class="form-step-label">Step 1 of 3</div>
         <h3>What do you need removed?</h3>
         <p class="form-sub">Pick the service that fits best.</p>
         <div class="form-options" id="svc-opts" style="grid-template-columns:1fr 1fr">
@@ -642,7 +663,7 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
       </div>
       <!-- Step 2: Timeline -->
       <div class="form-step" id="fs2">
-        <div class="form-step-label">Step 2 of 4</div>
+        <div class="form-step-label">Step 2 of 3</div>
         <h3>When do you need this done?</h3>
         <p class="form-sub">Pick your preferred timeline.</p>
         <div class="form-options" id="time-opts">
@@ -656,26 +677,9 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
           <button class="btn btn-orange" style="flex:2" onclick="nextStep(2)">Next →</button>
         </div>
       </div>
-      <!-- Step 3: Photo Upload -->
+      <!-- Step 3: Contact -->
       <div class="form-step" id="fs3">
-        <div class="form-step-label">Step 3 of 4</div>
-        <h3>Add a photo (optional)</h3>
-        <p class="form-sub">A photo helps us give a more accurate quote over the phone.</p>
-        <div class="upload-zone" id="upload-zone">
-          <input type="file" id="photo-upload" accept="image/*" multiple onchange="handleUpload(this.files)"/>
-          <div class="upload-icon">📸</div>
-          <div class="upload-title">Tap to take or upload a photo</div>
-          <div class="upload-sub">JPG, PNG, HEIC — max 10MB per photo</div>
-          <div class="upload-preview" id="preview-wrap"></div>
-        </div>
-        <div class="form-nav">
-          <button class="form-back" onclick="prevStep(3)">← Back</button>
-          <button class="btn btn-orange" style="flex:2" onclick="nextStep(3)">Next →</button>
-        </div>
-      </div>
-      <!-- Step 4: Contact -->
-      <div class="form-step" id="fs4">
-        <div class="form-step-label">Step 4 of 4</div>
+        <div class="form-step-label">Step 3 of 3</div>
         <h3>Where should we reach you?</h3>
         <p class="form-sub">We'll call to confirm your window — usually within the hour.</p>
         <div class="form-group"><label>Your Name *</label><input type="text" id="f-name" placeholder="John Smith" required/></div>
@@ -683,7 +687,7 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
         <div class="form-group"><label>City / Neighborhood</label><input type="text" id="f-city" placeholder="e.g. Seattle, Bellevue, Kirkland"/></div>
         <div class="form-group"><label>Anything else we should know?</label><textarea id="f-notes" placeholder="e.g. 3rd floor, tight staircase, lots of furniture..."></textarea></div>
         <div class="form-nav">
-          <button class="form-back" onclick="prevStep(4)">← Back</button>
+          <button class="form-back" onclick="prevStep(3)">← Back</button>
           <button class="btn btn-orange" style="flex:2" onclick="submitForm()">Submit Request →</button>
         </div>
         <p class="form-note">🔒 Your info is private. We never spam.</p>
@@ -998,12 +1002,23 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
 <div class="page" id="page-junk-removal">
 <section class="page-hero photo-hero" style="background-image:url(images/junk-house.jpg)">
   <div class="container">
-    <span class="eyebrow eyebrow-white">⚡ Same-Day Available · Licensed &amp; Insured</span>
-    <h1>Seattle Junk Removal<br>That Actually Shows Up</h1>
-    <p style="max-width:580px">Stop dragging stuff to the curb. We come inside, load it up, sweep up after ourselves, and haul it away — same day in most cases. One call, done today.</p>
-    <div class="page-hero-btns">
-      <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Call (206) 889-3023</a>
-      <a href="#" class="btn btn-outline-white btn-lg" onclick="openModal();return false">Get My Free Quote →</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow eyebrow-white">⚡ Same-Day Available · Licensed &amp; Insured</span>
+        <h1>Seattle Junk Removal<br>That Actually Shows Up</h1>
+        <p>Stop dragging stuff to the curb. We come inside, load it up, sweep up after ourselves, and haul it away — same day in most cases. One call, done today.</p>
+        <div class="page-hero-btns">
+          <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Call (206) 889-3023</a>
+        </div>
+      </div>
+      <div class="sp-form-slot"><div class="hero-card">
+        <div class="hero-card-title">Get Your Free Quote</div>
+        <div class="hero-card-sub">Takes 2 minutes. No obligation.</div>
+        <div class="form-progress"><div class="form-progress-bar" id="jr-prog" style="width:33%"></div></div>
+        <div class="form-step active" id="jr-s1"><div class="form-step-label">Step 1 of 3</div><h3>What do you need removed?</h3><div class="form-options" id="jr-svc" style="grid-template-columns:1fr 1fr"><div class="form-option selected" data-val="Junk Removal" onclick="sfPick(this,'jr-svc')"><span class="form-option-icon">🗑️</span>Junk Removal</div><div class="form-option" data-val="Yard Waste Removal" onclick="sfPick(this,'jr-svc')"><span class="form-option-icon">🌿</span>Yard Waste</div><div class="form-option" data-val="Appliance Removal" onclick="sfPick(this,'jr-svc')"><span class="form-option-icon">🔌</span>Appliance</div><div class="form-option" data-val="Furniture Removal" onclick="sfPick(this,'jr-svc')"><span class="form-option-icon">🛋️</span>Furniture</div><div class="form-option" data-val="Construction Debris" onclick="sfPick(this,'jr-svc')"><span class="form-option-icon">🏗️</span>Construction</div><div class="form-option" data-val="Estate Cleanout" onclick="sfPick(this,'jr-svc')"><span class="form-option-icon">🏠</span>Estate</div></div><div class="form-nav"><button class="btn btn-orange btn-full" onclick="sfNext('jr',1)">Next →</button></div></div>
+        <div class="form-step" id="jr-s2"><div class="form-step-label">Step 2 of 3</div><h3>When do you need this done?</h3><div class="form-options" id="jr-time"><div class="form-option" data-val="Today" onclick="sfPick(this,'jr-time')"><span class="form-option-icon">⚡</span>Today</div><div class="form-option" data-val="Tomorrow" onclick="sfPick(this,'jr-time')"><span class="form-option-icon">📅</span>Tomorrow</div><div class="form-option" data-val="This Week" onclick="sfPick(this,'jr-time')"><span class="form-option-icon">🗓️</span>This Week</div><div class="form-option" data-val="Flexible" onclick="sfPick(this,'jr-time')"><span class="form-option-icon">🕐</span>Flexible</div></div><div class="form-nav"><button class="form-back" onclick="sfPrev('jr',2)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfNext('jr',2)">Next →</button></div></div>
+        <div class="form-step" id="jr-s3"><div class="form-step-label">Step 3 of 3</div><h3>Where should we reach you?</h3><div class="form-group"><label>Your Name *</label><input type="text" id="jr-name" placeholder="John Smith"/></div><div class="form-group"><label>Phone Number *</label><input type="tel" id="jr-phone" placeholder="(206) 555-0100"/></div><div class="form-group"><label>City / Neighborhood</label><input type="text" id="jr-city" placeholder="e.g. Seattle, Bellevue"/></div><div class="form-nav"><button class="form-back" onclick="sfPrev('jr',3)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfSubmit('jr')">Submit Request →</button></div><p class="form-note">🔒 Your info is private. We never spam.</p></div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -1240,12 +1255,23 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
 <div class="page" id="page-yard-waste">
 <section class="page-hero photo-hero" style="background-image:url(images/yard-waste-pile.jpg)">
   <div class="container">
-    <span class="eyebrow eyebrow-white">⚡ Eco-Friendly · Composted Responsibly · Seattle &amp; Eastside</span>
-    <h1>Yard Waste Removal<br>in Seattle, WA</h1>
-    <p style="max-width:560px">After the storm, after the landscaping project, after the overgrowth takes over — your yard doesn't clear itself. We haul every branch, bag, and pile the same day. Composted properly, not landfilled.</p>
-    <div class="page-hero-btns">
-      <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Reclaim Your Yard — Call Now</a>
-      <a href="#" class="btn btn-outline-white btn-lg" onclick="openModal();return false">Get a Price in 60 Seconds</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow eyebrow-white">⚡ Eco-Friendly · Composted Responsibly · Seattle &amp; Eastside</span>
+        <h1>Yard Waste Removal<br>in Seattle, WA</h1>
+        <p>After the storm, after the landscaping project, after the overgrowth takes over — your yard doesn't clear itself. We haul every branch, bag, and pile the same day. Composted properly, not landfilled.</p>
+        <div class="page-hero-btns">
+          <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Reclaim Your Yard — Call Now</a>
+        </div>
+      </div>
+      <div class="sp-form-slot"><div class="hero-card">
+        <div class="hero-card-title">Get Your Free Quote</div>
+        <div class="hero-card-sub">Takes 2 minutes. No obligation.</div>
+        <div class="form-progress"><div class="form-progress-bar" id="yw-prog" style="width:33%"></div></div>
+        <div class="form-step active" id="yw-s1"><div class="form-step-label">Step 1 of 3</div><h3>What do you need removed?</h3><div class="form-options" id="yw-svc" style="grid-template-columns:1fr 1fr"><div class="form-option" data-val="Junk Removal" onclick="sfPick(this,'yw-svc')"><span class="form-option-icon">🗑️</span>Junk Removal</div><div class="form-option selected" data-val="Yard Waste Removal" onclick="sfPick(this,'yw-svc')"><span class="form-option-icon">🌿</span>Yard Waste</div><div class="form-option" data-val="Appliance Removal" onclick="sfPick(this,'yw-svc')"><span class="form-option-icon">🔌</span>Appliance</div><div class="form-option" data-val="Furniture Removal" onclick="sfPick(this,'yw-svc')"><span class="form-option-icon">🛋️</span>Furniture</div><div class="form-option" data-val="Construction Debris" onclick="sfPick(this,'yw-svc')"><span class="form-option-icon">🏗️</span>Construction</div><div class="form-option" data-val="Estate Cleanout" onclick="sfPick(this,'yw-svc')"><span class="form-option-icon">🏠</span>Estate</div></div><div class="form-nav"><button class="btn btn-orange btn-full" onclick="sfNext('yw',1)">Next →</button></div></div>
+        <div class="form-step" id="yw-s2"><div class="form-step-label">Step 2 of 3</div><h3>When do you need this done?</h3><div class="form-options" id="yw-time"><div class="form-option" data-val="Today" onclick="sfPick(this,'yw-time')"><span class="form-option-icon">⚡</span>Today</div><div class="form-option" data-val="Tomorrow" onclick="sfPick(this,'yw-time')"><span class="form-option-icon">📅</span>Tomorrow</div><div class="form-option" data-val="This Week" onclick="sfPick(this,'yw-time')"><span class="form-option-icon">🗓️</span>This Week</div><div class="form-option" data-val="Flexible" onclick="sfPick(this,'yw-time')"><span class="form-option-icon">🕐</span>Flexible</div></div><div class="form-nav"><button class="form-back" onclick="sfPrev('yw',2)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfNext('yw',2)">Next →</button></div></div>
+        <div class="form-step" id="yw-s3"><div class="form-step-label">Step 3 of 3</div><h3>Where should we reach you?</h3><div class="form-group"><label>Your Name *</label><input type="text" id="yw-name" placeholder="John Smith"/></div><div class="form-group"><label>Phone Number *</label><input type="tel" id="yw-phone" placeholder="(206) 555-0100"/></div><div class="form-group"><label>City / Neighborhood</label><input type="text" id="yw-city" placeholder="e.g. Seattle, Bellevue"/></div><div class="form-nav"><button class="form-back" onclick="sfPrev('yw',3)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfSubmit('yw')">Submit Request →</button></div><p class="form-note">🔒 Your info is private. We never spam.</p></div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -1453,12 +1479,23 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
 <div class="page" id="page-appliance-removal">
 <section class="page-hero photo-hero" style="background-image:url(images/appliance-washer-dryer.jpg)">
   <div class="container">
-    <span class="eyebrow eyebrow-white">⚡ Same-Day Available · EPA-Compliant Disposal</span>
-    <h1>Appliance Removal<br>in Seattle, WA</h1>
-    <p style="max-width:560px">That old fridge isn't going to move itself — and you can't just drag it to the curb. We disconnect, haul, and recycle every appliance, same-day available across Seattle.</p>
-    <div class="page-hero-btns">
-      <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Call (206) 889-3023</a>
-      <a href="#" class="btn btn-outline-white btn-lg" onclick="openModal();return false">Get My Free Quote →</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow eyebrow-white">⚡ Same-Day Available · EPA-Compliant Disposal</span>
+        <h1>Appliance Removal<br>in Seattle, WA</h1>
+        <p>That old fridge isn't going to move itself — and you can't just drag it to the curb. We disconnect, haul, and recycle every appliance, same-day available across Seattle.</p>
+        <div class="page-hero-btns">
+          <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Call (206) 889-3023</a>
+        </div>
+      </div>
+      <div class="sp-form-slot"><div class="hero-card">
+        <div class="hero-card-title">Get Your Free Quote</div>
+        <div class="hero-card-sub">Takes 2 minutes. No obligation.</div>
+        <div class="form-progress"><div class="form-progress-bar" id="ap-prog" style="width:33%"></div></div>
+        <div class="form-step active" id="ap-s1"><div class="form-step-label">Step 1 of 3</div><h3>What do you need removed?</h3><div class="form-options" id="ap-svc" style="grid-template-columns:1fr 1fr"><div class="form-option" data-val="Junk Removal" onclick="sfPick(this,'ap-svc')"><span class="form-option-icon">🗑️</span>Junk Removal</div><div class="form-option" data-val="Yard Waste Removal" onclick="sfPick(this,'ap-svc')"><span class="form-option-icon">🌿</span>Yard Waste</div><div class="form-option selected" data-val="Appliance Removal" onclick="sfPick(this,'ap-svc')"><span class="form-option-icon">🔌</span>Appliance</div><div class="form-option" data-val="Furniture Removal" onclick="sfPick(this,'ap-svc')"><span class="form-option-icon">🛋️</span>Furniture</div><div class="form-option" data-val="Construction Debris" onclick="sfPick(this,'ap-svc')"><span class="form-option-icon">🏗️</span>Construction</div><div class="form-option" data-val="Estate Cleanout" onclick="sfPick(this,'ap-svc')"><span class="form-option-icon">🏠</span>Estate</div></div><div class="form-nav"><button class="btn btn-orange btn-full" onclick="sfNext('ap',1)">Next →</button></div></div>
+        <div class="form-step" id="ap-s2"><div class="form-step-label">Step 2 of 3</div><h3>When do you need this done?</h3><div class="form-options" id="ap-time"><div class="form-option" data-val="Today" onclick="sfPick(this,'ap-time')"><span class="form-option-icon">⚡</span>Today</div><div class="form-option" data-val="Tomorrow" onclick="sfPick(this,'ap-time')"><span class="form-option-icon">📅</span>Tomorrow</div><div class="form-option" data-val="This Week" onclick="sfPick(this,'ap-time')"><span class="form-option-icon">🗓️</span>This Week</div><div class="form-option" data-val="Flexible" onclick="sfPick(this,'ap-time')"><span class="form-option-icon">🕐</span>Flexible</div></div><div class="form-nav"><button class="form-back" onclick="sfPrev('ap',2)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfNext('ap',2)">Next →</button></div></div>
+        <div class="form-step" id="ap-s3"><div class="form-step-label">Step 3 of 3</div><h3>Where should we reach you?</h3><div class="form-group"><label>Your Name *</label><input type="text" id="ap-name" placeholder="John Smith"/></div><div class="form-group"><label>Phone Number *</label><input type="tel" id="ap-phone" placeholder="(206) 555-0100"/></div><div class="form-group"><label>City / Neighborhood</label><input type="text" id="ap-city" placeholder="e.g. Seattle, Bellevue"/></div><div class="form-nav"><button class="form-back" onclick="sfPrev('ap',3)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfSubmit('ap')">Submit Request →</button></div><p class="form-note">🔒 Your info is private. We never spam.</p></div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -1582,12 +1619,23 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
 <div class="page" id="page-furniture-removal">
 <section class="page-hero photo-hero" style="background-image:url(images/svc-furniture-sofa.jpg)">
   <div class="container">
-    <span class="eyebrow eyebrow-white">⚡ Same-Day Available · We Donate What We Can</span>
-    <h1>Furniture Removal<br>in Seattle, WA</h1>
-    <p style="max-width:560px">No truck? No problem. Our crew comes inside, carries it out — from the 3rd floor if needed — and hauls it away. Upfront price, same-day available across Seattle.</p>
-    <div class="page-hero-btns">
-      <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Call (206) 889-3023</a>
-      <a href="#" class="btn btn-outline-white btn-lg" onclick="openModal();return false">Get My Free Quote →</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow eyebrow-white">⚡ Same-Day Available · We Donate What We Can</span>
+        <h1>Furniture Removal<br>in Seattle, WA</h1>
+        <p>No truck? No problem. Our crew comes inside, carries it out — from the 3rd floor if needed — and hauls it away. Upfront price, same-day available across Seattle.</p>
+        <div class="page-hero-btns">
+          <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Call (206) 889-3023</a>
+        </div>
+      </div>
+      <div class="sp-form-slot"><div class="hero-card">
+        <div class="hero-card-title">Get Your Free Quote</div>
+        <div class="hero-card-sub">Takes 2 minutes. No obligation.</div>
+        <div class="form-progress"><div class="form-progress-bar" id="fu-prog" style="width:33%"></div></div>
+        <div class="form-step active" id="fu-s1"><div class="form-step-label">Step 1 of 3</div><h3>What do you need removed?</h3><div class="form-options" id="fu-svc" style="grid-template-columns:1fr 1fr"><div class="form-option" data-val="Junk Removal" onclick="sfPick(this,'fu-svc')"><span class="form-option-icon">🗑️</span>Junk Removal</div><div class="form-option" data-val="Yard Waste Removal" onclick="sfPick(this,'fu-svc')"><span class="form-option-icon">🌿</span>Yard Waste</div><div class="form-option" data-val="Appliance Removal" onclick="sfPick(this,'fu-svc')"><span class="form-option-icon">🔌</span>Appliance</div><div class="form-option selected" data-val="Furniture Removal" onclick="sfPick(this,'fu-svc')"><span class="form-option-icon">🛋️</span>Furniture</div><div class="form-option" data-val="Construction Debris" onclick="sfPick(this,'fu-svc')"><span class="form-option-icon">🏗️</span>Construction</div><div class="form-option" data-val="Estate Cleanout" onclick="sfPick(this,'fu-svc')"><span class="form-option-icon">🏠</span>Estate</div></div><div class="form-nav"><button class="btn btn-orange btn-full" onclick="sfNext('fu',1)">Next →</button></div></div>
+        <div class="form-step" id="fu-s2"><div class="form-step-label">Step 2 of 3</div><h3>When do you need this done?</h3><div class="form-options" id="fu-time"><div class="form-option" data-val="Today" onclick="sfPick(this,'fu-time')"><span class="form-option-icon">⚡</span>Today</div><div class="form-option" data-val="Tomorrow" onclick="sfPick(this,'fu-time')"><span class="form-option-icon">📅</span>Tomorrow</div><div class="form-option" data-val="This Week" onclick="sfPick(this,'fu-time')"><span class="form-option-icon">🗓️</span>This Week</div><div class="form-option" data-val="Flexible" onclick="sfPick(this,'fu-time')"><span class="form-option-icon">🕐</span>Flexible</div></div><div class="form-nav"><button class="form-back" onclick="sfPrev('fu',2)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfNext('fu',2)">Next →</button></div></div>
+        <div class="form-step" id="fu-s3"><div class="form-step-label">Step 3 of 3</div><h3>Where should we reach you?</h3><div class="form-group"><label>Your Name *</label><input type="text" id="fu-name" placeholder="John Smith"/></div><div class="form-group"><label>Phone Number *</label><input type="tel" id="fu-phone" placeholder="(206) 555-0100"/></div><div class="form-group"><label>City / Neighborhood</label><input type="text" id="fu-city" placeholder="e.g. Seattle, Bellevue"/></div><div class="form-nav"><button class="form-back" onclick="sfPrev('fu',3)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfSubmit('fu')">Submit Request →</button></div><p class="form-note">🔒 Your info is private. We never spam.</p></div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -1696,12 +1744,23 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
 <div class="page" id="page-construction-debris">
 <section class="page-hero photo-hero" style="background-image:url(images/construction-debris.jpg)">
   <div class="container">
-    <span class="eyebrow eyebrow-white">⚡ Same-Day Available · Residential &amp; Commercial</span>
-    <h1>Construction Debris<br>Removal in Seattle, WA</h1>
-    <p style="max-width:560px">Renovation done. Now the real mess begins. Drywall, lumber, tile, concrete — we clear construction debris fast so your project can move forward. No dumpster rental needed.</p>
-    <div class="page-hero-btns">
-      <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Call (206) 889-3023</a>
-      <a href="#" class="btn btn-outline-white btn-lg" onclick="openModal();return false">Get My Free Quote →</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow eyebrow-white">⚡ Same-Day Available · Residential &amp; Commercial</span>
+        <h1>Construction Debris<br>Removal in Seattle, WA</h1>
+        <p>Renovation done. Now the real mess begins. Drywall, lumber, tile, concrete — we clear construction debris fast so your project can move forward. No dumpster rental needed.</p>
+        <div class="page-hero-btns">
+          <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Call (206) 889-3023</a>
+        </div>
+      </div>
+      <div class="sp-form-slot"><div class="hero-card">
+        <div class="hero-card-title">Get Your Free Quote</div>
+        <div class="hero-card-sub">Takes 2 minutes. No obligation.</div>
+        <div class="form-progress"><div class="form-progress-bar" id="cd-prog" style="width:33%"></div></div>
+        <div class="form-step active" id="cd-s1"><div class="form-step-label">Step 1 of 3</div><h3>What do you need removed?</h3><div class="form-options" id="cd-svc" style="grid-template-columns:1fr 1fr"><div class="form-option" data-val="Junk Removal" onclick="sfPick(this,'cd-svc')"><span class="form-option-icon">🗑️</span>Junk Removal</div><div class="form-option" data-val="Yard Waste Removal" onclick="sfPick(this,'cd-svc')"><span class="form-option-icon">🌿</span>Yard Waste</div><div class="form-option" data-val="Appliance Removal" onclick="sfPick(this,'cd-svc')"><span class="form-option-icon">🔌</span>Appliance</div><div class="form-option" data-val="Furniture Removal" onclick="sfPick(this,'cd-svc')"><span class="form-option-icon">🛋️</span>Furniture</div><div class="form-option selected" data-val="Construction Debris" onclick="sfPick(this,'cd-svc')"><span class="form-option-icon">🏗️</span>Construction</div><div class="form-option" data-val="Estate Cleanout" onclick="sfPick(this,'cd-svc')"><span class="form-option-icon">🏠</span>Estate</div></div><div class="form-nav"><button class="btn btn-orange btn-full" onclick="sfNext('cd',1)">Next →</button></div></div>
+        <div class="form-step" id="cd-s2"><div class="form-step-label">Step 2 of 3</div><h3>When do you need this done?</h3><div class="form-options" id="cd-time"><div class="form-option" data-val="Today" onclick="sfPick(this,'cd-time')"><span class="form-option-icon">⚡</span>Today</div><div class="form-option" data-val="Tomorrow" onclick="sfPick(this,'cd-time')"><span class="form-option-icon">📅</span>Tomorrow</div><div class="form-option" data-val="This Week" onclick="sfPick(this,'cd-time')"><span class="form-option-icon">🗓️</span>This Week</div><div class="form-option" data-val="Flexible" onclick="sfPick(this,'cd-time')"><span class="form-option-icon">🕐</span>Flexible</div></div><div class="form-nav"><button class="form-back" onclick="sfPrev('cd',2)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfNext('cd',2)">Next →</button></div></div>
+        <div class="form-step" id="cd-s3"><div class="form-step-label">Step 3 of 3</div><h3>Where should we reach you?</h3><div class="form-group"><label>Your Name *</label><input type="text" id="cd-name" placeholder="John Smith"/></div><div class="form-group"><label>Phone Number *</label><input type="tel" id="cd-phone" placeholder="(206) 555-0100"/></div><div class="form-group"><label>City / Neighborhood</label><input type="text" id="cd-city" placeholder="e.g. Seattle, Bellevue"/></div><div class="form-nav"><button class="form-back" onclick="sfPrev('cd',3)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfSubmit('cd')">Submit Request →</button></div><p class="form-note">🔒 Your info is private. We never spam.</p></div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -1837,12 +1896,23 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
 <div class="page" id="page-estate-cleanout">
 <section class="page-hero photo-hero" style="background-image:url(images/estate-garage.jpg)">
   <div class="container">
-    <span class="eyebrow eyebrow-white">Full Property Clearances · Handled with Respect</span>
-    <h1>Estate Cleanout<br>in Seattle, WA</h1>
-    <p style="max-width:580px">Clearing a loved one's home is hard enough without the physical burden too. We handle the entire process — sorting, donating, hauling — so you can focus on what matters. One call, fully cleared.</p>
-    <div class="page-hero-btns">
-      <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Call (206) 889-3023</a>
-      <a href="#" class="btn btn-outline-white btn-lg" onclick="openModal();return false">Get My Free Quote →</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow eyebrow-white">Full Property Clearances · Handled with Respect</span>
+        <h1>Estate Cleanout<br>in Seattle, WA</h1>
+        <p>Clearing a loved one's home is hard enough without the physical burden too. We handle the entire process — sorting, donating, hauling — so you can focus on what matters. One call, fully cleared.</p>
+        <div class="page-hero-btns">
+          <a href="tel:2068893023" class="btn btn-orange btn-lg">📞 Call (206) 889-3023</a>
+        </div>
+      </div>
+      <div class="sp-form-slot"><div class="hero-card">
+        <div class="hero-card-title">Get Your Free Quote</div>
+        <div class="hero-card-sub">Takes 2 minutes. No obligation.</div>
+        <div class="form-progress"><div class="form-progress-bar" id="ec-prog" style="width:33%"></div></div>
+        <div class="form-step active" id="ec-s1"><div class="form-step-label">Step 1 of 3</div><h3>What do you need removed?</h3><div class="form-options" id="ec-svc" style="grid-template-columns:1fr 1fr"><div class="form-option" data-val="Junk Removal" onclick="sfPick(this,'ec-svc')"><span class="form-option-icon">🗑️</span>Junk Removal</div><div class="form-option" data-val="Yard Waste Removal" onclick="sfPick(this,'ec-svc')"><span class="form-option-icon">🌿</span>Yard Waste</div><div class="form-option" data-val="Appliance Removal" onclick="sfPick(this,'ec-svc')"><span class="form-option-icon">🔌</span>Appliance</div><div class="form-option" data-val="Furniture Removal" onclick="sfPick(this,'ec-svc')"><span class="form-option-icon">🛋️</span>Furniture</div><div class="form-option" data-val="Construction Debris" onclick="sfPick(this,'ec-svc')"><span class="form-option-icon">🏗️</span>Construction</div><div class="form-option selected" data-val="Estate Cleanout" onclick="sfPick(this,'ec-svc')"><span class="form-option-icon">🏠</span>Estate</div></div><div class="form-nav"><button class="btn btn-orange btn-full" onclick="sfNext('ec',1)">Next →</button></div></div>
+        <div class="form-step" id="ec-s2"><div class="form-step-label">Step 2 of 3</div><h3>When do you need this done?</h3><div class="form-options" id="ec-time"><div class="form-option" data-val="Today" onclick="sfPick(this,'ec-time')"><span class="form-option-icon">⚡</span>Today</div><div class="form-option" data-val="Tomorrow" onclick="sfPick(this,'ec-time')"><span class="form-option-icon">📅</span>Tomorrow</div><div class="form-option" data-val="This Week" onclick="sfPick(this,'ec-time')"><span class="form-option-icon">🗓️</span>This Week</div><div class="form-option" data-val="Flexible" onclick="sfPick(this,'ec-time')"><span class="form-option-icon">🕐</span>Flexible</div></div><div class="form-nav"><button class="form-back" onclick="sfPrev('ec',2)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfNext('ec',2)">Next →</button></div></div>
+        <div class="form-step" id="ec-s3"><div class="form-step-label">Step 3 of 3</div><h3>Where should we reach you?</h3><div class="form-group"><label>Your Name *</label><input type="text" id="ec-name" placeholder="John Smith"/></div><div class="form-group"><label>Phone Number *</label><input type="tel" id="ec-phone" placeholder="(206) 555-0100"/></div><div class="form-group"><label>City / Neighborhood</label><input type="text" id="ec-city" placeholder="e.g. Seattle, Bellevue"/></div><div class="form-nav"><button class="form-back" onclick="sfPrev('ec',3)">← Back</button><button class="btn btn-orange" style="flex:2" onclick="sfSubmit('ec')">Submit Request →</button></div><p class="form-note">🔒 Your info is private. We never spam.</p></div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -2215,10 +2285,10 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
     <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
     <div style="font-family:var(--font-head);font-size:1.15rem;font-weight:800;color:var(--charcoal-dk);margin-bottom:4px">Get Your Free Quote</div>
     <div style="font-size:0.875rem;color:var(--gray);margin-bottom:18px">Takes 2 minutes. No obligation. We'll call you within the hour.</div>
-    <div class="form-progress" style="margin-bottom:20px"><div class="form-progress-bar" id="m-prog" style="width:25%"></div></div>
+    <div class="form-progress" style="margin-bottom:20px"><div class="form-progress-bar" id="m-prog" style="width:33%"></div></div>
     <!-- Step 1: Service -->
     <div class="form-step active" id="m-fs1">
-      <div class="form-step-label">Step 1 of 4</div>
+      <div class="form-step-label">Step 1 of 3</div>
       <h3>What do you need removed?</h3>
       <p class="form-sub">Pick the service that fits best.</p>
       <div class="form-options" id="m-svc-opts" style="grid-template-columns:1fr 1fr">
@@ -2233,7 +2303,7 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
     </div>
     <!-- Step 2: Timeline -->
     <div class="form-step" id="m-fs2">
-      <div class="form-step-label">Step 2 of 4</div>
+      <div class="form-step-label">Step 2 of 3</div>
       <h3>When do you need this done?</h3>
       <p class="form-sub">Pick your preferred timeline.</p>
       <div class="form-options" id="m-time-opts">
@@ -2247,26 +2317,9 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
         <button class="btn btn-orange" style="flex:2" onclick="mNextStep(2)">Next →</button>
       </div>
     </div>
-    <!-- Step 3: Photo Upload -->
+    <!-- Step 3: Contact -->
     <div class="form-step" id="m-fs3">
-      <div class="form-step-label">Step 3 of 4</div>
-      <h3>Add a photo (optional)</h3>
-      <p class="form-sub">A photo helps us give a more accurate quote over the phone.</p>
-      <div class="upload-zone" id="m-upload-zone">
-        <input type="file" id="m-photo-upload" accept="image/*" multiple onchange="mHandleUpload(this.files)"/>
-        <div class="upload-icon">📸</div>
-        <div class="upload-title">Tap to take or upload a photo</div>
-        <div class="upload-sub">JPG, PNG, HEIC — max 10MB per photo</div>
-        <div class="upload-preview" id="m-preview-wrap"></div>
-      </div>
-      <div class="form-nav">
-        <button class="form-back" onclick="mPrevStep(3)">← Back</button>
-        <button class="btn btn-orange" style="flex:2" onclick="mNextStep(3)">Next →</button>
-      </div>
-    </div>
-    <!-- Step 4: Contact -->
-    <div class="form-step" id="m-fs4">
-      <div class="form-step-label">Step 4 of 4</div>
+      <div class="form-step-label">Step 3 of 3</div>
       <h3>Where should we reach you?</h3>
       <p class="form-sub">We'll call to confirm your window — usually within the hour.</p>
       <div class="form-group"><label>Your Name *</label><input type="text" id="m-f-name" placeholder="John Smith" required/></div>
@@ -2274,7 +2327,7 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
       <div class="form-group"><label>City / Neighborhood</label><input type="text" id="m-f-city" placeholder="e.g. Seattle, Bellevue, Kirkland"/></div>
       <div class="form-group"><label>Anything else we should know?</label><textarea id="m-f-notes" placeholder="e.g. 3rd floor, tight staircase, lots of furniture..."></textarea></div>
       <div class="form-nav">
-        <button class="form-back" onclick="mPrevStep(4)">← Back</button>
+        <button class="form-back" onclick="mPrevStep(3)">← Back</button>
         <button class="btn btn-orange" style="flex:2" onclick="mSubmitForm()">Submit Request →</button>
       </div>
       <p class="form-note">🔒 Your info is private. We never spam.</p>
@@ -2320,7 +2373,7 @@ p{font-size:1rem;color:var(--gray);line-height:1.75}
 function go(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const el=document.getElementById('page-'+id);
-  if(el){el.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+  if(el){el.classList.add('active');window.scrollTo(0,0);}
   history.pushState(null,'','#'+id);
 }
 
@@ -2368,10 +2421,20 @@ function faq(btn){
   if(!was)item.classList.add('open');
 }
 
+// ── Web3Forms ────────────────────────────────
+const W3F_KEY='12cc7453-d65c-48c3-b199-55b346403004'; // get free key at web3forms.com → enter info@samedayjunkremoval.co
+function w3fSend(data){
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({access_key:W3F_KEY,from_name:'Same-Day Junk Removal Pros',...data})
+  }).catch(()=>{});
+}
+
 // ── Multi-Step Form ──────────────────────────
 let curStep=1;
-const totalSteps=4;
-const formData={service:'',timeline:'',photos:[],name:'',phone:'',city:'',notes:''};
+const totalSteps=3;
+const formData={service:'',timeline:'',name:'',phone:'',city:'',notes:''};
 
 function setProgress(step){
   document.getElementById('prog').style.width=(step/totalSteps*100)+'%';
@@ -2388,11 +2451,13 @@ function nextStep(from){
     const sel=document.querySelector('#svc-opts .form-option.selected');
     if(!sel){alert('Please select a service.');return;}
     formData.service=sel.dataset.val;
+    sdjrTrack('step2');
   }
   if(from===2){
     const sel=document.querySelector('#time-opts .form-option.selected');
     if(!sel){alert('Please select a timeline.');return;}
     formData.timeline=sel.dataset.val;
+    sdjrTrack('step3');
   }
   if(from<totalSteps)showStep(from+1);
 }
@@ -2404,33 +2469,6 @@ function pickOne(el,groupId){
   el.classList.add('selected');
 }
 
-function handleUpload(files){
-  const preview=document.getElementById('preview-wrap');
-  [...files].forEach(file=>{
-    if(!file.type.startsWith('image/'))return;
-    const reader=new FileReader();
-    reader.onload=e=>{
-      const img=document.createElement('img');
-      img.src=e.target.result;
-      img.className='upload-thumb';
-      preview.appendChild(img);
-      formData.photos.push(e.target.result);
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
-// Drag & drop on upload zone
-const uz=document.getElementById('upload-zone');
-if(uz){
-  uz.addEventListener('dragover',e=>{e.preventDefault();uz.classList.add('dragover');});
-  uz.addEventListener('dragleave',()=>uz.classList.remove('dragover'));
-  uz.addEventListener('drop',e=>{
-    e.preventDefault();uz.classList.remove('dragover');
-    const dt=e.dataTransfer;
-    if(dt.files.length) handleUpload(dt.files);
-  });
-}
 
 function submitForm(){
   const name=document.getElementById('f-name').value.trim();
@@ -2441,16 +2479,13 @@ function submitForm(){
   formData.phone=phone;
   formData.city=document.getElementById('f-city').value.trim();
   formData.notes=document.getElementById('f-notes').value.trim();
-  // Show thank you
-  document.querySelectorAll('#quote .form-step').forEach(s=>s.classList.remove('active'));
-  document.getElementById('prog').style.width='100%';
-  document.getElementById('form-thank').style.display='block';
-  // GHL Webhook — uncomment and replace URL:
-  // fetch('YOUR_GHL_WEBHOOK_URL',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(formData)}).catch(()=>{});
+  sdjrTrack('submit');
+  w3fSend({subject:'New Quote Request — '+formData.service,name:formData.name,phone:formData.phone,service:formData.service,timeline:formData.timeline,city:formData.city,notes:formData.notes});
+  window.location.href='/thank-you';
 }
 
 // ── Modal Quote Form ─────────────────────────
-const mFormData={service:'',timeline:'',photos:[],name:'',phone:'',city:'',notes:''};
+const mFormData={service:'',timeline:'',name:'',phone:'',city:'',notes:''};
 let mCurStep=1;
 
 function openModal(){
@@ -2461,11 +2496,11 @@ function openModal(){
   document.querySelectorAll('#quote-modal .form-step').forEach(s=>s.classList.remove('active'));
   const fs=document.getElementById('m-fs1');
   if(fs)fs.classList.add('active');
-  document.getElementById('m-prog').style.width='25%';
+  document.getElementById('m-prog').style.width='33%';
   document.getElementById('m-form-thank').style.display='none';
   document.querySelectorAll('#m-svc-opts .form-option,#m-time-opts .form-option').forEach(o=>o.classList.remove('selected'));
   mCurStep=1;
-  mFormData.service='';mFormData.timeline='';mFormData.photos=[];
+  mFormData.service='';mFormData.timeline='';
 }
 function closeModal(){
   document.getElementById('quote-modal').classList.remove('open');
@@ -2475,7 +2510,7 @@ function mShowStep(n){
   document.querySelectorAll('#quote-modal .form-step').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById('m-fs'+n);
   if(el)el.classList.add('active');
-  document.getElementById('m-prog').style.width=(n/4*100)+'%';
+  document.getElementById('m-prog').style.width=(n/3*100)+'%';
   mCurStep=n;
 }
 function mNextStep(from){
@@ -2483,30 +2518,17 @@ function mNextStep(from){
     const sel=document.querySelector('#m-svc-opts .form-option.selected');
     if(!sel){alert('Please select a service.');return;}
     mFormData.service=sel.dataset.val;
+    sdjrTrack('step2');
   }
   if(from===2){
     const sel=document.querySelector('#m-time-opts .form-option.selected');
     if(!sel){alert('Please select a timeline.');return;}
     mFormData.timeline=sel.dataset.val;
+    sdjrTrack('step3');
   }
-  if(from<4)mShowStep(from+1);
+  if(from<3)mShowStep(from+1);
 }
 function mPrevStep(from){if(from>1)mShowStep(from-1);}
-function mHandleUpload(files){
-  const preview=document.getElementById('m-preview-wrap');
-  [...files].forEach(file=>{
-    if(!file.type.startsWith('image/'))return;
-    const reader=new FileReader();
-    reader.onload=e=>{
-      const img=document.createElement('img');
-      img.src=e.target.result;
-      img.className='upload-thumb';
-      preview.appendChild(img);
-      mFormData.photos.push(e.target.result);
-    };
-    reader.readAsDataURL(file);
-  });
-}
 function mSubmitForm(){
   const name=document.getElementById('m-f-name').value.trim();
   const phone=document.getElementById('m-f-phone').value.trim();
@@ -2516,38 +2538,27 @@ function mSubmitForm(){
   mFormData.phone=phone;
   mFormData.city=document.getElementById('m-f-city').value.trim();
   mFormData.notes=document.getElementById('m-f-notes').value.trim();
-  document.querySelectorAll('#quote-modal .form-step').forEach(s=>s.classList.remove('active'));
-  document.getElementById('m-prog').style.width='100%';
-  document.getElementById('m-form-thank').style.display='block';
-  // GHL Webhook — uncomment and replace URL:
-  // fetch('YOUR_GHL_WEBHOOK_URL',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(mFormData)}).catch(()=>{});
+  sdjrTrack('submit');
+  w3fSend({subject:'New Quote Request — '+mFormData.service,name:mFormData.name,phone:mFormData.phone,service:mFormData.service,timeline:mFormData.timeline,city:mFormData.city,notes:mFormData.notes});
+  window.location.href='/thank-you';
 }
 // Close modal on Escape key
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
-// Modal upload drag & drop
-const muz=document.getElementById('m-upload-zone');
-if(muz){
-  muz.addEventListener('dragover',e=>{e.preventDefault();muz.classList.add('dragover');});
-  muz.addEventListener('dragleave',()=>muz.classList.remove('dragover'));
-  muz.addEventListener('drop',e=>{
-    e.preventDefault();muz.classList.remove('dragover');
-    const dt=e.dataTransfer;
-    if(dt.files.length) mHandleUpload(dt.files);
-  });
-}
 
 // ── Mid-page Quote Form ───────────────────────
 function submitMidForm(e){
   e.preventDefault();
-  document.getElementById('mid-quote-form').style.display='none';
-  document.getElementById('mid-quote-thanks').style.display='block';
+  const f=e.target;
+  w3fSend({subject:'New Quick Quote Request',name:f.name.value,phone:f.phone.value,service:f.service.value,timing:f.timing.value});
+  window.location.href='/thank-you';
 }
 
 // ── Contact Form ─────────────────────────────
 function submitContact(e){
   e.preventDefault();
-  document.getElementById('contact-form').style.display='none';
-  document.getElementById('contact-thank').style.display='block';
+  const f=e.target;
+  w3fSend({subject:'New Contact Message',name:f.name.value,phone:f.phone.value,email:f.email.value,service:f.service.value,message:f.message.value});
+  window.location.href='/thank-you';
 }
 
 // ── Google Reviews GMB Link ──────────────────
@@ -2561,6 +2572,63 @@ function submitContact(e){
   });
 })();
 
+
+// ── Inline Service Page Forms ────────────────
+function sfShow(id,n){
+  ['s1','s2','s3'].forEach(function(s){var el=document.getElementById(id+'-'+s);if(el)el.classList.remove('active');});
+  var el=document.getElementById(id+'-s'+n);if(el)el.classList.add('active');
+  var prog=document.getElementById(id+'-prog');if(prog)prog.style.width=(n/3*100)+'%';
+}
+function sfNext(id,from){
+  if(from===1){var sel=document.querySelector('#'+id+'-svc .form-option.selected');if(!sel){alert('Please select a service.');return;}sdjrTrack('step2');}
+  if(from===2){var sel=document.querySelector('#'+id+'-time .form-option.selected');if(!sel){alert('Please select a timeline.');return;}sdjrTrack('step3');}
+  if(from<3)sfShow(id,from+1);
+}
+function sfPrev(id,from){if(from>1)sfShow(id,from-1);}
+function sfPick(el,groupId){
+  document.querySelectorAll('#'+groupId+' .form-option').forEach(function(o){o.classList.remove('selected');});
+  el.classList.add('selected');
+}
+function sfSubmit(id){
+  var name=document.getElementById(id+'-name').value.trim();
+  var phone=document.getElementById(id+'-phone').value.trim();
+  if(!name){alert('Please enter your name.');return;}
+  if(!phone){alert('Please enter your phone number.');return;}
+  var svc=document.querySelector('#'+id+'-svc .form-option.selected');
+  var time=document.querySelector('#'+id+'-time .form-option.selected');
+  var city=document.getElementById(id+'-city').value.trim();
+  sdjrTrack('submit');
+  w3fSend({subject:'New Quote Request — '+(svc?svc.dataset.val:''),name:name,phone:phone,service:svc?svc.dataset.val:'',timeline:time?time.dataset.val:'',city:city});
+  window.location.href='/thank-you';
+}
+
+// ── Click-to-Call Conversion Tracking ────────
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') { window.location = url; }
+  };
+  gtag('event', 'conversion', {
+    'send_to': 'AW-16916043182/xdsKCL3fjp8cEK6rmYI_',
+    'value': 1.0,
+    'currency': 'USD',
+    'event_callback': callback
+  });
+  return false;
+}
+document.addEventListener('click', function(e) {
+  var a = e.target.closest('a[href^="tel:"]');
+  if (a) {
+    e.preventDefault();
+    sdjrTrack('call');
+    sdjrTrack(window.innerWidth <= 768 ? 'call_mobile' : 'call_desktop');
+    gtag_report_conversion(a.href);
+  }
+});
+
+function sdjrTrack(event) {
+  try { fetch('/api/track', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ event: event }) }); } catch(_) {}
+}
+
 // ── Hash routing ─────────────────────────────
 const pageMap={'':'home','#home':'home','#junk-removal':'junk-removal','#yard-waste':'yard-waste','#appliance-removal':'appliance-removal','#furniture-removal':'furniture-removal','#construction-debris':'construction-debris','#estate-cleanout':'estate-cleanout','#about':'about','#contact-page':'contact-page'};
 function routeHash(){
@@ -2569,9 +2637,12 @@ function routeHash(){
   document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
   const target=document.getElementById('page-'+p);
   if(target)target.classList.add('active');
+  window.scrollTo(0,0);
 }
 window.addEventListener('hashchange',routeHash);
+routeHash(); // fire on initial page load — fixes Google Ads direct URL landing
 </script>
+
 
 <!-- Schema: FAQ -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you pick up my junk?","acceptedAnswer":{"@type":"Answer","text":"Same-day pickup is available when you call before noon. We're open 7 days a week, 7AM–10PM."}},{"@type":"Question","name":"How is junk removal priced?","acceptedAnswer":{"@type":"Answer","text":"We price by volume — how much space your junk takes in our truck. Upfront quote given before we start. No hidden fees."}},{"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We serve all of Greater Seattle including Seattle, Bellevue, Kirkland, Redmond, Renton, Issaquah, Sammamish, Bothell, Shoreline, and Mercer Island."}}]}</script>

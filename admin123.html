@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Admin — Same-Day Junk Removal Pros</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --orange:#ff6900;
+  --charcoal:#32373c;
+  --charcoal-dk:#1a1d20;
+  --black:#000000;
+  --white:#ffffff;
+  --gray:#707070;
+  --gray-lt:#f5f5f5;
+  --green:#22c55e;
+  --font-head:'Montserrat',sans-serif;
+  --font-body:'Open Sans',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:#0f1117;color:var(--white);min-height:100vh}
+
+.topbar{background:var(--charcoal-dk);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.08)}
+.topbar-brand{font-family:var(--font-head);font-size:0.85rem;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:0.04em}
+.topbar-meta{display:flex;align-items:center;gap:16px}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#ef4444;flex-shrink:0}
+.status-dot.ok{background:var(--green)}
+.status-label{font-size:0.78rem;color:rgba(255,255,255,0.45)}
+.refresh-btn{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);font-family:var(--font-body);font-size:0.78rem;padding:6px 14px;border-radius:4px;cursor:pointer;transition:background 0.15s}
+.refresh-btn:hover{background:rgba(255,255,255,0.12)}
+
+.main{padding:32px 28px;max-width:1100px;margin:0 auto}
+
+.section-label{font-family:var(--font-head);font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.35);margin-bottom:14px}
+
+/* Stat cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-bottom:40px}
+.card{background:var(--charcoal-dk);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:20px 20px 16px}
+.card-label{font-size:0.72rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
+.card-value{font-family:var(--font-head);font-size:2rem;font-weight:900;color:var(--white);line-height:1}
+.card-sub{font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:6px}
+.card.highlight .card-value{color:var(--orange)}
+.card.highlight-green .card-value{color:var(--green)}
+
+/* Funnel */
+.funnel-wrap{background:var(--charcoal-dk);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:24px;margin-bottom:40px}
+.funnel-row{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.funnel-row:last-child{margin-bottom:0}
+.funnel-name{width:70px;font-size:0.78rem;color:rgba(255,255,255,0.5);text-align:right;flex-shrink:0}
+.funnel-bar-track{flex:1;background:rgba(255,255,255,0.06);border-radius:3px;height:24px;overflow:hidden}
+.funnel-bar-fill{height:100%;border-radius:3px;background:var(--orange);transition:width 0.6s ease;min-width:2px}
+.funnel-bar-fill.green{background:var(--green)}
+.funnel-count{width:48px;font-family:var(--font-head);font-size:0.85rem;font-weight:800;text-align:right;flex-shrink:0}
+.funnel-pct{width:44px;font-size:0.72rem;color:rgba(255,255,255,0.3);text-align:right;flex-shrink:0}
+
+/* Call split */
+.call-split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}
+.split-card{background:var(--charcoal-dk);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:20px}
+.split-icon{font-size:1.4rem;margin-bottom:10px}
+.split-label{font-size:0.72rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px}
+.split-value{font-family:var(--font-head);font-size:1.8rem;font-weight:900}
+.split-pct{font-size:0.78rem;color:rgba(255,255,255,0.3);margin-top:4px}
+
+/* Setup notice */
+.notice{background:rgba(255,165,0,0.07);border:1px solid rgba(255,165,0,0.2);border-radius:8px;padding:20px 24px;margin-bottom:32px}
+.notice h3{font-family:var(--font-head);font-size:0.85rem;font-weight:800;color:#fbbf24;margin-bottom:10px}
+.notice p{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:8px}
+.notice p:last-child{margin-bottom:0}
+.notice code{font-size:0.78rem;background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:3px;color:rgba(255,255,255,0.75)}
+
+.last-updated{font-size:0.72rem;color:rgba(255,255,255,0.2);text-align:center;margin-top:20px}
+
+@media(max-width:600px){
+  .main{padding:20px 16px}
+  .call-split{grid-template-columns:1fr 1fr}
+  .funnel-name{width:52px;font-size:0.72rem}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-brand">SDJR — Admin Dashboard</div>
+  <div class="topbar-meta">
+    <div id="status-dot" class="status-dot"></div>
+    <span id="status-label" class="status-label">Loading…</span>
+    <button class="refresh-btn" onclick="loadStats()">Refresh</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <div id="notice-setup" class="notice" style="display:none">
+    <h3>⚠ Upstash Redis not configured — tracking is inactive</h3>
+    <p>To enable live tracking, create a free Upstash Redis database at <code>upstash.com</code>, then add these two environment variables to your Vercel project:</p>
+    <p><code>UPSTASH_REDIS_REST_URL</code> — the REST URL from your Upstash database page</p>
+    <p><code>UPSTASH_REDIS_REST_TOKEN</code> — the Read/Write token from your Upstash database page</p>
+    <p>After adding the env vars, redeploy and data will start flowing immediately.</p>
+  </div>
+
+  <div class="section-label">Form Funnel</div>
+
+  <div class="cards" id="summary-cards">
+    <div class="card highlight">
+      <div class="card-label">Reached Step 2</div>
+      <div class="card-value" id="c-step2">—</div>
+      <div class="card-sub">Engaged with form</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Reached Step 3</div>
+      <div class="card-value" id="c-step3">—</div>
+      <div class="card-sub">Selected timeline</div>
+    </div>
+    <div class="card highlight-green">
+      <div class="card-label">Submitted</div>
+      <div class="card-value" id="c-submit">—</div>
+      <div class="card-sub">Leads generated</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Total Calls</div>
+      <div class="card-value" id="c-call">—</div>
+      <div class="card-sub">Click-to-call taps</div>
+    </div>
+  </div>
+
+  <div class="section-label">Funnel Drop-Off</div>
+
+  <div class="funnel-wrap" id="funnel-wrap">
+    <div class="funnel-row">
+      <div class="funnel-name">Step 2</div>
+      <div class="funnel-bar-track"><div class="funnel-bar-fill" id="bar-step2" style="width:0%"></div></div>
+      <div class="funnel-count" id="fn-step2">—</div>
+      <div class="funnel-pct" id="fp-step2"></div>
+    </div>
+    <div class="funnel-row">
+      <div class="funnel-name">Step 3</div>
+      <div class="funnel-bar-track"><div class="funnel-bar-fill" id="bar-step3" style="width:0%"></div></div>
+      <div class="funnel-count" id="fn-step3">—</div>
+      <div class="funnel-pct" id="fp-step3"></div>
+    </div>
+    <div class="funnel-row">
+      <div class="funnel-name">Submit</div>
+      <div class="funnel-bar-track"><div class="funnel-bar-fill green" id="bar-submit" style="width:0%"></div></div>
+      <div class="funnel-count" id="fn-submit">—</div>
+      <div class="funnel-pct" id="fp-submit"></div>
+    </div>
+  </div>
+
+  <div class="section-label">Click-to-Call Breakdown</div>
+
+  <div class="call-split">
+    <div class="split-card">
+      <div class="split-icon">📱</div>
+      <div class="split-label">Mobile</div>
+      <div class="split-value" id="c-mobile">—</div>
+      <div class="split-pct" id="p-mobile"></div>
+    </div>
+    <div class="split-card">
+      <div class="split-icon">🖥</div>
+      <div class="split-label">Desktop</div>
+      <div class="split-value" id="c-desktop">—</div>
+      <div class="split-pct" id="p-desktop"></div>
+    </div>
+  </div>
+
+  <div class="last-updated" id="last-updated"></div>
+
+</div>
+
+<script>
+async function loadStats() {
+  document.getElementById('status-label').textContent = 'Loading…';
+  try {
+    const res = await fetch('/api/stats');
+    const data = await res.json();
+
+    if (!data.configured) {
+      document.getElementById('notice-setup').style.display = 'block';
+      document.getElementById('status-dot').classList.remove('ok');
+      document.getElementById('status-label').textContent = 'Not configured';
+      return;
+    }
+
+    document.getElementById('notice-setup').style.display = 'none';
+    document.getElementById('status-dot').classList.add('ok');
+    document.getElementById('status-label').textContent = 'Live';
+
+    const s = data.stats;
+    const step2 = s.step2 || 0;
+    const step3 = s.step3 || 0;
+    const submit = s.submit || 0;
+    const call = s.call || 0;
+    const mobile = s.call_mobile || 0;
+    const desktop = s.call_desktop || 0;
+    const top = step2 || 1;
+
+    // Summary cards
+    document.getElementById('c-step2').textContent = step2.toLocaleString();
+    document.getElementById('c-step3').textContent = step3.toLocaleString();
+    document.getElementById('c-submit').textContent = submit.toLocaleString();
+    document.getElementById('c-call').textContent = call.toLocaleString();
+
+    // Funnel bars (relative to step2)
+    function pct(n, d) { return d ? Math.round(n / d * 100) : 0; }
+
+    document.getElementById('bar-step2').style.width = '100%';
+    document.getElementById('fn-step2').textContent = step2.toLocaleString();
+    document.getElementById('fp-step2').textContent = '';
+
+    const p3 = pct(step3, top);
+    document.getElementById('bar-step3').style.width = p3 + '%';
+    document.getElementById('fn-step3').textContent = step3.toLocaleString();
+    document.getElementById('fp-step3').textContent = step2 ? p3 + '%' : '';
+
+    const ps = pct(submit, top);
+    document.getElementById('bar-submit').style.width = ps + '%';
+    document.getElementById('fn-submit').textContent = submit.toLocaleString();
+    document.getElementById('fp-submit').textContent = step2 ? ps + '%' : '';
+
+    // Call split
+    const callTotal = mobile + desktop || 1;
+    document.getElementById('c-mobile').textContent = mobile.toLocaleString();
+    document.getElementById('p-mobile').textContent = call ? pct(mobile, callTotal) + '% of calls' : '';
+    document.getElementById('c-desktop').textContent = desktop.toLocaleString();
+    document.getElementById('p-desktop').textContent = call ? pct(desktop, callTotal) + '% of calls' : '';
+
+    document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+  } catch (e) {
+    document.getElementById('status-label').textContent = 'Error — check console';
+    console.error(e);
+  }
+}
+
+loadStats();
+setInterval(loadStats, 30000);
+</script>
+</body>
+</html>
