@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Agency Dashboard — Oscar Katsoulis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --orange:#ff6900;
+  --charcoal:#32373c;
+  --dk:#0f1117;
+  --card:#1a1d23;
+  --border:rgba(255,255,255,0.07);
+  --text:rgba(255,255,255,0.85);
+  --muted:rgba(255,255,255,0.35);
+  --green:#22c55e;
+  --red:#ef4444;
+  --font-head:'Montserrat',sans-serif;
+  --font-body:'Open Sans',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--dk);color:var(--text);min-height:100vh}
+
+/* TOP BAR */
+.topbar{background:#12151b;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
+.brand{font-family:var(--font-head);font-size:0.82rem;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:0.06em}
+.brand span{color:var(--orange)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.last-sync{font-size:0.72rem;color:var(--muted)}
+.btn-refresh{background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--muted);font-family:var(--font-body);font-size:0.75rem;padding:6px 14px;border-radius:4px;cursor:pointer;transition:background 0.15s}
+.btn-refresh:hover{background:rgba(255,255,255,0.1);color:#fff}
+
+/* LAYOUT */
+.main{padding:32px 28px;max-width:1200px;margin:0 auto}
+
+/* ADD SITE BANNER */
+.add-banner{background:rgba(255,105,0,0.06);border:1px dashed rgba(255,105,0,0.25);border-radius:8px;padding:16px 22px;margin-bottom:32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.add-banner p{font-size:0.8rem;color:var(--muted);line-height:1.5}
+.add-banner p strong{color:rgba(255,255,255,0.6)}
+.add-banner code{font-size:0.75rem;background:rgba(255,255,255,0.06);padding:2px 7px;border-radius:3px;color:rgba(255,255,255,0.55)}
+
+/* SITE CARDS */
+.sites-grid{display:grid;gap:20px}
+
+.site-card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.site-header{padding:16px 20px 14px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)}
+.site-favicon{width:24px;height:24px;border-radius:4px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:0.8rem;flex-shrink:0}
+.site-info{flex:1;min-width:0}
+.site-name{font-family:var(--font-head);font-size:0.85rem;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site-url{font-size:0.72rem;color:var(--muted)}
+.site-status{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.dot.live{background:var(--green)}
+.dot.error{background:var(--red)}
+.status-text{font-size:0.72rem;color:var(--muted)}
+
+.site-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.stat-cell{padding:14px 16px;border-right:1px solid var(--border)}
+.stat-cell:last-child{border-right:none}
+.stat-label{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px}
+.stat-value{font-family:var(--font-head);font-size:1.5rem;font-weight:900;color:#fff;line-height:1}
+.stat-value.orange{color:var(--orange)}
+.stat-value.green{color:var(--green)}
+.stat-sub{font-size:0.68rem;color:var(--muted);margin-top:3px}
+
+.site-funnel{padding:14px 20px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.funnel-step{display:flex;align-items:center;gap:6px}
+.f-pill{background:rgba(255,255,255,0.06);border-radius:20px;padding:4px 10px;font-size:0.72rem;color:var(--muted);white-space:nowrap}
+.f-pill strong{color:rgba(255,255,255,0.7);font-family:var(--font-head)}
+.f-arrow{color:rgba(255,255,255,0.15);font-size:0.7rem}
+.f-conv{font-size:0.7rem;color:var(--green);background:rgba(34,197,94,0.08);border-radius:20px;padding:4px 10px;white-space:nowrap}
+
+.loading-row{padding:20px;text-align:center;font-size:0.8rem;color:var(--muted)}
+
+/* SECTION LABEL */
+.section-label{font-family:var(--font-head);font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:14px}
+
+@media(max-width:640px){
+  .main{padding:20px 16px}
+  .site-stats{grid-template-columns:repeat(2,1fr)}
+  .stat-cell:nth-child(2){border-right:none}
+  .stat-cell:nth-child(3){border-top:1px solid var(--border)}
+  .stat-cell:nth-child(4){border-top:1px solid var(--border)}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Oscar <span>Agency</span> — Dashboard</div>
+  <div class="topbar-right">
+    <span class="last-sync" id="last-sync">—</span>
+    <button class="btn-refresh" onclick="loadAll()">↻ Refresh</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="add-banner">
+    <p><strong>Adding a new site?</strong> Deploy the site with <code>/api/stats</code> returning the standard JSON shape, then add an entry to the <code>SITES</code> array at the top of this file's script block. No other setup needed.</p>
+  </div>
+
+  <div class="section-label">Active Sites</div>
+  <div class="sites-grid" id="sites-grid"></div>
+
+</div>
+
+<script>
+// ─── SITE REGISTRY ───────────────────────────────────────────────────────────
+// To add a site: copy one entry, update name/url/color/emoji.
+// statsUrl must return: { configured: bool, stats: { step2, step3, submit, call, call_mobile, call_desktop } }
+const SITES = [
+  {
+    name: 'Same-Day Junk Removal Pros',
+    url: 'samedayjunkremoval.co',
+    statsUrl: 'https://samedayjunkremoval.co/api/stats',
+    adminUrl: 'https://samedayjunkremoval.co/admin123',
+    emoji: '🚛',
+    color: '#ff6900',
+  },
+  // Add more sites below:
+  // {
+  //   name: 'Client Name',
+  //   url: 'clientdomain.com',
+  //   statsUrl: 'https://clientdomain.com/api/stats',
+  //   adminUrl: 'https://clientdomain.com/admin123',
+  //   emoji: '🏠',
+  //   color: '#3b82f6',
+  // },
+];
+// ─────────────────────────────────────────────────────────────────────────────
+
+function pct(n, d) { return d ? Math.round(n / d * 100) : 0; }
+function fmt(n) { return (n || 0).toLocaleString(); }
+
+function renderCard(site, loading) {
+  return `
+    <div class="site-card" id="card-${site.url.replace(/\./g,'-')}">
+      <div class="site-header">
+        <div class="site-favicon">${site.emoji}</div>
+        <div class="site-info">
+          <div class="site-name">${site.name}</div>
+          <div class="site-url"><a href="https://${site.url}" target="_blank" style="color:inherit;text-decoration:none">${site.url} ↗</a></div>
+        </div>
+        <div class="site-status">
+          <div class="dot" id="dot-${site.url.replace(/\./g,'-')}"></div>
+          <span class="status-text" id="status-${site.url.replace(/\./g,'-')}">Loading…</span>
+          &nbsp;·&nbsp;
+          <a href="${site.adminUrl}" target="_blank" style="font-size:0.72rem;color:var(--muted);text-decoration:none">Full Admin ↗</a>
+        </div>
+      </div>
+      <div class="site-stats" id="stats-${site.url.replace(/\./g,'-')}">
+        <div class="loading-row" style="grid-column:1/-1">Loading…</div>
+      </div>
+      <div class="site-funnel" id="funnel-${site.url.replace(/\./g,'-')}"></div>
+    </div>
+  `;
+}
+
+function updateCard(site, data) {
+  const id = site.url.replace(/\./g,'-');
+  const dot = document.getElementById('dot-'+id);
+  const statusEl = document.getElementById('status-'+id);
+  const statsEl = document.getElementById('stats-'+id);
+  const funnelEl = document.getElementById('funnel-'+id);
+
+  if (!data || !data.configured) {
+    dot.className = 'dot error';
+    statusEl.textContent = 'No data yet';
+    statsEl.innerHTML = '<div class="loading-row" style="grid-column:1/-1;color:rgba(255,255,255,0.2)">Waiting for first visitors…</div>';
+    funnelEl.innerHTML = '';
+    return;
+  }
+
+  const s = data.stats;
+  const step2 = s.step2 || 0;
+  const step3 = s.step3 || 0;
+  const submit = s.submit || 0;
+  const call = s.call || 0;
+  const mobile = s.call_mobile || 0;
+  const desktop = s.call_desktop || 0;
+  const convRate = step2 ? pct(submit, step2) : 0;
+
+  dot.className = 'dot live';
+  statusEl.textContent = 'Live';
+
+  statsEl.innerHTML = `
+    <div class="stat-cell">
+      <div class="stat-label">Step 2</div>
+      <div class="stat-value orange">${fmt(step2)}</div>
+      <div class="stat-sub">Form engaged</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Submitted</div>
+      <div class="stat-value green">${fmt(submit)}</div>
+      <div class="stat-sub">${convRate}% conv. rate</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Calls</div>
+      <div class="stat-value">${fmt(call)}</div>
+      <div class="stat-sub">${mobile ? fmt(mobile)+'m / '+fmt(desktop)+'d' : '—'}</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Drop-off</div>
+      <div class="stat-value">${step2 ? (100 - convRate) + '%' : '—'}</div>
+      <div class="stat-sub">Didn't submit</div>
+    </div>
+  `;
+
+  funnelEl.innerHTML = `
+    <div class="funnel-step">
+      <span class="f-pill"><strong>${fmt(step2)}</strong> reached step 2</span>
+    </div>
+    <div class="f-arrow">→</div>
+    <div class="funnel-step">
+      <span class="f-pill"><strong>${fmt(step3)}</strong> reached step 3 ${step2?'('+pct(step3,step2)+'%)':''}</span>
+    </div>
+    <div class="f-arrow">→</div>
+    <div class="funnel-step">
+      <span class="f-pill"><strong>${fmt(submit)}</strong> submitted ${step2?'('+pct(submit,step2)+'%)':''}</span>
+    </div>
+    ${call ? `<div class="f-arrow">·</div><span class="f-conv">${fmt(call)} calls (${fmt(mobile)} mobile / ${fmt(desktop)} desktop)</span>` : ''}
+  `;
+}
+
+async function loadSite(site) {
+  try {
+    const res = await fetch(site.statsUrl, { cache: 'no-store' });
+    const data = await res.json();
+    updateCard(site, data);
+  } catch (e) {
+    const id = site.url.replace(/\./g,'-');
+    const dot = document.getElementById('dot-'+id);
+    const statusEl = document.getElementById('status-'+id);
+    if (dot) dot.className = 'dot error';
+    if (statusEl) statusEl.textContent = 'Unreachable';
+  }
+}
+
+async function loadAll() {
+  await Promise.all(SITES.map(loadSite));
+  document.getElementById('last-sync').textContent = 'Updated ' + new Date().toLocaleTimeString();
+}
+
+// Render skeleton cards first
+document.getElementById('sites-grid').innerHTML = SITES.map(s => renderCard(s)).join('');
+
+// Then load live data
+loadAll();
+setInterval(loadAll, 30000);
+</script>
+</body>
+</html>

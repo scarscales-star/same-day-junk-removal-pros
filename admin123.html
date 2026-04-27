@@ -95,11 +95,8 @@ body{font-family:var(--font-body);background:#0f1117;color:var(--white);min-heig
 <div class="main">
 
   <div id="notice-setup" class="notice" style="display:none">
-    <h3>⚠ Upstash Redis not configured — tracking is inactive</h3>
-    <p>To enable live tracking, create a free Upstash Redis database at <code>upstash.com</code>, then add these two environment variables to your Vercel project:</p>
-    <p><code>UPSTASH_REDIS_REST_URL</code> — the REST URL from your Upstash database page</p>
-    <p><code>UPSTASH_REDIS_REST_TOKEN</code> — the Read/Write token from your Upstash database page</p>
-    <p>After adding the env vars, redeploy and data will start flowing immediately.</p>
+    <h3>⚠ Could not reach tracking service</h3>
+    <p>The stats API returned an error. Check the browser console for details. Tracking may still be recording — try refreshing in a moment.</p>
   </div>
 
   <div class="section-label">Form Funnel</div>
