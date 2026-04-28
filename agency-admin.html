@@ -121,6 +121,22 @@ const SITES = [
     emoji: '🚛',
     color: '#ff6900',
   },
+  {
+    name: 'Lighthouse Outdoor Lighting MA',
+    url: 'lighthouseoutdoorlightingma.com',
+    statsUrl: 'https://lighthouseoutdoorlightingma.com/api/stats',
+    adminUrl: 'https://lighthouseoutdoorlightingma.com/admin123',
+    emoji: '💡',
+    color: '#C9A84C',
+  },
+  {
+    name: 'Garage Detailing KC',
+    url: 'garagedetailingkc.com',           // ← update if domain is different
+    statsUrl: 'https://garagedetailingkc.com/api/stats',
+    adminUrl: 'https://garagedetailingkc.com/admin123',
+    emoji: '🚗',
+    color: '#C9A84C',
+  },
   // Add more sites below:
   // {
   //   name: 'Client Name',
@@ -176,12 +192,12 @@ function updateCard(site, data) {
   }
 
   const s = data.stats;
-  const step2 = s.step2 || 0;
-  const step3 = s.step3 || 0;
-  const submit = s.submit || 0;
-  const call = s.call || 0;
-  const mobile = s.call_mobile || 0;
+  const step2  = s.step2 || s.form_step_2 || 0;
+  const step3  = s.step3 || s.form_step_3 || 0;
+  const submit = s.submit || s.form_submit || 0;
+  const mobile  = s.call_mobile || 0;
   const desktop = s.call_desktop || 0;
+  const call   = s.call || s.call_click || (mobile + desktop) || 0;
   const convRate = step2 ? pct(submit, step2) : 0;
 
   dot.className = 'dot live';
