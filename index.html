@@ -2626,7 +2626,7 @@ document.addEventListener('click', function(e) {
 });
 
 function sdjrTrack(event) {
-  try { fetch('/api/track', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ event: event }) }); } catch(_) {}
+  try { fetch('/api/track', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ event: event }) }); } catch(_) {}
 }
 
 // ── Hash routing ─────────────────────────────
